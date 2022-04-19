@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+
+.CPMainTable {
+    margin-bottom: 10px;
+}
+
+.CPMainTable td {
+    padding: 0;
+}
+
+.CPMainTable th {
+    border: 1px solid #ddd;
+    font-size: 12px;
+    color: #000000;
+    padding: 3px 5px;
+}
+
+.CPMainTable > thead > tr > td {
+    background: #fff;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    color: #000000;
+    padding: 3px 5px;
+}
+
+tr.CPHeader > th {
+    background: #0e2431;
+    font-weight: bold;
+    font-size: 14px;
+    color: #fff;
+    padding: 3px 5px;
+}
+.text-12 {
+    font-size: 12px;
+    color: #000000;
+}
