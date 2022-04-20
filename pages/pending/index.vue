@@ -38,6 +38,8 @@
                 striped
                 hover
             />
+        </b-col>
+        <b-col cols="12" class="d-flex justify-content-center">
             <b-pagination
                 size="sm"
                 v-model="currentPage"

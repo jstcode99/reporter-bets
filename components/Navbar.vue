@@ -91,28 +91,28 @@
                 <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/lines"> 
                     View Lines
                 </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
+                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/iplogs"> 
                     Ip Log
                 </b-nav-item>
                 <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
                     Contact Us
                 </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
+                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/settle"> 
                     Settle
                 </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
+                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/messages"> 
                     Messages
                 </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
+                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/performance"> 
                     Performance
                 </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
+                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/deleted-wagers"> 
                     Deleted Wagers
                 </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
+                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/cash-flow"> 
                     Cash Flow
                 </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
+                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/volume"> 
                     Volume
                 </b-nav-item>
                 <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 

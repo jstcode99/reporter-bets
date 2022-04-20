@@ -1,6 +1,6 @@
 <template>
   <b-container fluid>
-    <b-form inline class="p-2">
+    <b-form inline class="mt-2 mb-3">
         <b-input-group class="mt-3">
             <b-form-select
                 id="inline-form-display"
@@ -29,13 +29,17 @@
         class="p-2 m-2"
         :items="items"
     />
-    <b-pagination
-        size="sm"
-        v-model="currentPage"
-        :total-rows="rows"
-        :per-page="perPage"
-        aria-controls="my-table"
-    />
+    <b-row>
+        <b-col cols="12" class="d-flex justify-content-center">
+            <b-pagination
+                size="sm"
+                v-model="currentPage"
+                :total-rows="rows"
+                :per-page="perPage"
+                aria-controls="my-table"
+            />
+        </b-col>
+    </b-row>
   </b-container>
 </template>
 
