@@ -1,16 +1,16 @@
 <template>
   <b-row>
         <b-col cols="6">
-                <b-button-group size="sm">
-                    <b-button
-                        v-for="(btn, idx) in buttons"
-                        :key="idx"
-                        :pressed.sync="btn.state"
-                        :variant="btn.state ? 'danger' : 'secondary'"
-                    >
-                        {{ btn.caption }}
-                    </b-button>
-                </b-button-group>
+            <b-button-group size="sm">
+                <b-button
+                    v-for="(btn, idx) in buttons"
+                    :key="idx"
+                    :pressed.sync="btn.state"
+                    :variant="btn.state ? 'danger' : 'light'"
+                >
+                    {{ btn.caption }}
+                </b-button>
+            </b-button-group>
         </b-col>
         <b-col cols="6">
             <b-button-group size="sm">
@@ -18,7 +18,7 @@
                     v-for="(btn, idx) in buttons2"
                     :key="idx"
                     :pressed.sync="btn.state"
-                    :variant="btn.state ? 'danger' : 'secondary'"
+                    :variant="btn.state ? 'danger' : 'light'"
                 >
                     {{ btn.caption }}
                 </b-button>
