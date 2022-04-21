@@ -13,17 +13,13 @@
                 <b-navbar-nav>
                 </b-navbar-nav>
                 <b-navbar-nav class="ml-auto">
-                    <b-nav-item exact-active-class="text-dark" to="/Dashboard">
-                        <b-icon icon="house-door" /> Home
-                    </b-nav-item>
-                    <b-nav-item exact-active-class="text-dark" to="/Figures">
-                        <b-icon icon="cash" /> Figures
-                    </b-nav-item>
-                    <b-nav-item exact-active-class="text-dark" to="/Distribution">
-                        <b-icon icon="diagram3" /> Distribution
-                    </b-nav-item>
-                    <b-nav-item exact-active-class="text-dark" to="/Position">
-                        <b-icon icon="geo-alt" /> Position
+                    <b-nav-item
+                        v-for="(nav, index) in navMenu"
+                        :key="index"
+                        exact-active-class="text-dark"
+                        :to="{ path: nav.path}"
+                    >
+                        <b-icon :icon="nav.icon" /> {{nav.text}}
                     </b-nav-item>
                     <b-nav-form>
                         <b-form-input
@@ -76,106 +72,73 @@
             backdrop
         >
             <b-nav vertical class="bg-dark">
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/customers"> 
-                    Customer List
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/accounts/history"> 
-                    Account History
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/monitor"> 
-                    Monitor
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/pending"> 
-                    Pending
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/lines"> 
-                    View Lines
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/iplogs"> 
-                    Ip Log
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
-                    Contact Us
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/settle"> 
-                    Settle
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/messages"> 
-                    Messages
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/performance"> 
-                    Performance
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/deleted-wagers"> 
-                    Deleted Wagers
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/cash-flow"> 
-                    Cash Flow
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to="/volume"> 
-                    Volume
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
-                    Hold %
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
-                    Ticket Writer
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
-                    Agents
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
-                    Mail
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
-                    Agent Settle
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
-                    LC Figures
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
-                    Move Customers
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
-                    Cashier 
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
-                    Action By Player
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
-                    Scores History
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
-                    Detailed
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
-                    New Accounts
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
-                    Accounting 
-                </b-nav-item>
-                <b-nav-item link-classes="text-light" active-class="bg-light text-dark" to=""> 
-                    Lottery 
+                <b-nav-item
+                    v-for="(nav, index) in sideMenu"
+                    :key="index"
+                    link-classes="text-light"
+                    active-class="bg-light text-dark"
+                    :to="{ path: nav.path}"
+                >
+                    {{nav.text}}
                 </b-nav-item>
             </b-nav>
         </b-sidebar>
     </div>
 </template>
 <script>
-export default {
-    data() {
-        return {
-            selected: null,
-            options: [
+import { defineComponent, ref } from '@vue/composition-api'
+
+export default defineComponent({
+    setup() {
+        const selected = ref(null)
+        const options = ref([
                 { value: null, text: 'AGENTE1' },
                 { value: 'a', text: 'This is First option' },
                 { value: 'b', text: 'Selected Option' },
                 { value: { C: '3PO' }, text: 'This is an option with object value' },
                 { value: 'd', text: 'This one is disabled', disabled: true }
-            ]
+        ])
+        const navMenu = ref([
+            {text: 'Home', icon: 'house-door', path: '/Dashboard'},
+            {text: 'Figures', icon: 'cash', path: '/Figures'},
+            {text: 'Distribution', icon: 'diagram3', path: '/Distribution'},
+            {text: 'Position', icon: 'geo-alt', path: '/Position'},
+        ])
+        const sideMenu = ref([
+            { text: 'Customer List', path: '/customers' },
+            { text: 'Account History', path: '/accounts/history' },
+            { text: 'Monitor', path: '/monitor' },
+            { text: 'Pending', path: '/pending' },
+            { text: 'View Lines', path: '/lines' },
+            { text: 'Ip Log', path: '/iplogs' },
+            { text: 'Contact Us', path: '---' },
+            { text: 'Settle', path: '/settle' },
+            { text: 'Messages', path: '/messages' },
+            { text: 'Performance', path: '/performance' },
+            { text: 'Deleted Wagers', path: '/deleted-wagers' },
+            { text: 'Cash Flow', path: '/cash-flow' },
+            { text: 'Volume', path: '/volume' },
+            { text: 'Hold %', path: '---' },
+            { text: 'Ticket Writer', path: '---' },
+            { text: 'Agents', path: '---' },
+            { text: 'Mail', path: '---' },
+            { text: 'Agent Settle', path: '---' },
+            { text: 'LC Figures', path: '---' },
+            { text: 'Move Customers', path: '---' },
+            { text: 'Cashier ', path: '---' },
+            { text: 'Action By Player', path: '---' },
+            { text: 'Scores History', path: '---' },
+            { text: 'Detailed', path: '---' },
+            { text: 'New Accounts', path: '---' },
+            { text: 'Accounting', path: '---' },
+            { text: 'Lottery', path: '---' },
+        ])
+        return {
+            selected,
+            options,
+            navMenu,
+            sideMenu,
         }
-    },  
-}
+    },
+})
 </script>
-<style>
-</style>
