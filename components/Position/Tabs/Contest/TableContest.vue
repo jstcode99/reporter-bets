@@ -27,7 +27,7 @@
         <b-col cols="12">
             <b-form inline class="p-2">
                 <b-form-checkbox
-                    v-model="status"
+                    v-model="showPercentage"
                     class="mr-2"
                 >
                     Show Percentage
@@ -47,41 +47,49 @@
         </b-col>
   </b-row>
 </template>
-
 <script>
-  export default {
-    data() {
-      return {
-        buttons: [
-          { caption: 'Football', state: true },
-          { caption: 'BaseBall', state: false },
-          { caption: 'BasketBall', state: false },
-          { caption: 'Hockey', state: false },
-          { caption: 'Soccer', state: false },
-          { caption: 'Soccer - Minor', state: false },
-          { caption: 'Other', state: false },
-        ],
-        buttons2: [
-          { caption: 'Game', state: true },
-          { caption: '1st Halft', state: false },
-          { caption: '2end Halft', state: false },
-          { caption: 'Quarters', state: false },
-        ],
-        fields: [
-          { key: 'Date', label: 'Date' },
-          { key: 'Rotation', label: 'Rotation' },
-          { key: 'Game', label: 'Game' },
-          { key: 'Straight', label: 'Straight' },
-          { key: 'Parlay', label: 'Parlay' },
-          { key: 'Teaser', label: 'Teaser'  }
-        ],
-        items: [
-          { Date: new Date().toLocaleString(), Rotation: 'Dickerson', Game: 'Macdonald',  Straight: '...', Parlay: '...', Teaser: '...' },
-          { Date: new Date().toLocaleString(), Rotation: 'Larsen', Game: 'Shaw',  Straight: '...', Parlay: '...', Teaser: '...' },
-          { Date: new Date().toLocaleString(), Rotation: 'Geneva', Game: 'Wilson',  Straight: '...', Parlay: '...', Teaser: '...' },
-          { Date: new Date().toLocaleString(), Rotation: 'Jami', Game: 'Carney',  Straight: '...', Parlay: '...', Teaser: '...' }
-        ]
-      }
+import { defineComponent, ref } from '@vue/composition-api'
+
+export default defineComponent({
+    setup() {
+        const showPercentage = ref(false)
+        const buttons = ref([
+            { caption: 'Football', state: true },
+            { caption: 'BaseBall', state: false },
+            { caption: 'BasketBall', state: false },
+            { caption: 'Hockey', state: false },
+            { caption: 'Soccer', state: false },
+            { caption: 'Soccer - Minor', state: false },
+            { caption: 'Other', state: false },
+        ])
+        const buttons2 = ref([
+            { caption: 'Game', state: true },
+            { caption: '1st Halft', state: false },
+            { caption: '2end Halft', state: false },
+            { caption: 'Quarters', state: false },
+        ])
+        const fields = ref([
+            { key: 'Date', label: 'Date' },
+            { key: 'Rotation', label: 'Rotation' },
+            { key: 'Game', label: 'Game' },
+            { key: 'Straight', label: 'Straight' },
+            { key: 'Parlay', label: 'Parlay' },
+            { key: 'Teaser', label: 'Teaser'  }
+        ])
+        const items = ref([
+            { Date: new Date().toLocaleString(), Rotation: 'Dickerson', Game: 'Macdonald',  Straight: '...', Parlay: '...', Teaser: '...' },
+            { Date: new Date().toLocaleString(), Rotation: 'Larsen', Game: 'Shaw',  Straight: '...', Parlay: '...', Teaser: '...' },
+            { Date: new Date().toLocaleString(), Rotation: 'Geneva', Game: 'Wilson',  Straight: '...', Parlay: '...', Teaser: '...' },
+            { Date: new Date().toLocaleString(), Rotation: 'Jami', Game: 'Carney',  Straight: '...', Parlay: '...', Teaser: '...' }
+        ])
+        
+        return {
+            showPercentage,
+            buttons,
+            buttons2,
+            fields,
+            items,
+        }
     },
-  }
+})
 </script>
