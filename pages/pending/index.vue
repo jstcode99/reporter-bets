@@ -7,7 +7,7 @@
                         v-for="(btn, idx) in buttons"
                         :key="idx"
                         :pressed.sync="btn.state"
-                        :variant="btn.state ? 'danger' : 'secondary'"
+                        :variant="btn.state ? 'danger' : 'light'"
                     >
                         {{ btn.caption }}
                     </b-button>

@@ -2,7 +2,7 @@
     <b-container fluid>
         <br>
         <h6>IP Logs</h6>
-        <b-form inline class="p-2">
+        <b-form inline class="pt-2">
             <b-input-group
                 class="mr-3"
                 size="sm"
